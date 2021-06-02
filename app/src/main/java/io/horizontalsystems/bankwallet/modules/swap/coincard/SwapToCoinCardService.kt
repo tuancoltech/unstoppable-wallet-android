@@ -1,29 +1,28 @@
 package io.horizontalsystems.bankwallet.modules.swap.coincard
 
 import io.horizontalsystems.bankwallet.modules.swap.SwapModule
-import io.horizontalsystems.bankwallet.modules.swap.SwapService
-import io.horizontalsystems.bankwallet.modules.swap.SwapTradeService
+import io.horizontalsystems.bankwallet.modules.swap.SwapModuleNew
+import io.horizontalsystems.bankwallet.modules.swap.SwapServiceNew
 import io.horizontalsystems.coinkit.models.Coin
-import io.horizontalsystems.uniswapkit.models.TradeType
 import io.reactivex.Observable
 import java.math.BigDecimal
 import java.util.*
 
 class SwapToCoinCardService(
-        private val service: SwapService,
-        private val tradeService: SwapTradeService,
+        private val service: SwapServiceNew,
+        private val swapAdapter: SwapModuleNew.ISwapAdapter,
         private val coinProvider: SwapCoinProvider
 ) : ISwapCoinCardService {
-    private val tradeType: TradeType = TradeType.ExactOut
+    private val amountType: SwapModuleNew.AmountType = SwapModuleNew.AmountType.ExactTo
 
     override val isEstimated: Boolean
-        get() = tradeService.tradeType != tradeType
+        get() = swapAdapter.amountType != amountType
 
     override val amount: BigDecimal?
-        get() = tradeService.amountTo
+        get() = swapAdapter.toAmount
 
     override val coin: Coin?
-        get() = tradeService.coinTo
+        get() = swapAdapter.toCoin
 
     override val balance: BigDecimal?
         get() = service.balanceTo
@@ -32,13 +31,13 @@ class SwapToCoinCardService(
         get() = coinProvider.coins(enabledCoins = false)
 
     override val isEstimatedObservable: Observable<Boolean>
-        get() = tradeService.tradeTypeObservable.map { it != tradeType }
+        get() = swapAdapter.amountTypeObservable.map { it != amountType }
 
     override val amountObservable: Observable<Optional<BigDecimal>>
-        get() = tradeService.amountToObservable
+        get() = swapAdapter.toAmountObservable
 
     override val coinObservable: Observable<Optional<Coin>>
-        get() = tradeService.coinToObservable
+        get() = swapAdapter.toCoinObservable
 
     override val balanceObservable: Observable<Optional<BigDecimal>>
         get() = service.balanceToObservable
@@ -47,11 +46,11 @@ class SwapToCoinCardService(
         get() = Observable.just(Optional.empty())
 
     override fun onChangeAmount(amount: BigDecimal?) {
-        tradeService.enterAmountTo(amount)
+        swapAdapter.enterToAmount(amount)
     }
 
     override fun onSelectCoin(coin: Coin) {
-        tradeService.enterCoinTo(coin)
+        swapAdapter.enterToCoin(coin)
     }
 
 }

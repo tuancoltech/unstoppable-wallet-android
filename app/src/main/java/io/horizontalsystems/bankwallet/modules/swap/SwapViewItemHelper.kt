@@ -12,16 +12,16 @@ import java.math.RoundingMode
 
 class SwapViewItemHelper(private val numberFormatter: IAppNumberFormatter) {
 
-    fun price(price: BigDecimal?, coinFrom: Coin?, coinTo: Coin?): String? {
-        if (price == null || coinFrom == null || coinTo == null)
+    fun price(price: BigDecimal?, baseCoin: Coin?, quoteCoin: Coin?): String? {
+        if (price == null || baseCoin == null || quoteCoin == null)
             return null
 
-        val inversePrice = if (price.compareTo(BigDecimal.ZERO)== 0)
+        val inversePrice = if (price.compareTo(BigDecimal.ZERO) == 0)
             BigDecimal.ZERO
         else
             BigDecimal.ONE.divide(price, price.scale(), RoundingMode.HALF_UP)
 
-        return "${coinTo.code} = ${coinAmount(inversePrice, coinFrom)} "
+        return "${quoteCoin.code} = ${coinAmount(inversePrice, baseCoin)} "
     }
 
     fun priceImpactViewItem(
@@ -57,7 +57,7 @@ class SwapViewItemHelper(private val numberFormatter: IAppNumberFormatter) {
 
     fun slippage(allowedSlippage: BigDecimal): String? {
         val defaultTradeOptions = TradeOptions()
-        return if (allowedSlippage.compareTo(defaultTradeOptions.allowedSlippagePercent) == 0){
+        return if (allowedSlippage.compareTo(defaultTradeOptions.allowedSlippagePercent) == 0) {
             null
         } else {
             "$allowedSlippage%"

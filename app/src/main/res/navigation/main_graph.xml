@@ -303,7 +303,7 @@
         tools:layout="@layout/fragment_add_token" />
     <fragment
         android:id="@+id/swapFragment"
-        android:name="io.horizontalsystems.bankwallet.modules.swap.SwapFragment"
+        android:name="io.horizontalsystems.bankwallet.modules.swap.SwapFragmentNew"
         android:label="@string/Swap"
         tools:layout="@layout/fragment_swap">
         <action

@@ -80,6 +80,19 @@ object SwapModule {
                     App.adapterManager
             )
         }
+        private val serviceNew by lazy {
+            SwapServiceNew(
+                    dex,
+                    uniswapProviderNew,
+                    allowanceService,
+                    pendingAllowanceService,
+                    App.adapterManager
+            )
+        }
+        private val uniswapProviderNew by lazy {
+            UniswapAdapter(fromCoin, evmKit, uniswapKit)
+        }
+
         private val tradeService by lazy {
             SwapTradeService(evmKit, uniswapProvider, fromCoin)
         }
@@ -90,10 +103,10 @@ object SwapModule {
             SwapCoinProvider(dex, App.coinManager, App.walletManager, App.adapterManager, App.currencyManager, App.xRateManager)
         }
         private val fromCoinCardService by lazy {
-            SwapFromCoinCardService(service, tradeService, coinProvider)
+            SwapFromCoinCardService(serviceNew, uniswapProviderNew, coinProvider)
         }
         private val toCoinCardService by lazy {
-            SwapToCoinCardService(service, tradeService, coinProvider)
+            SwapToCoinCardService(serviceNew, uniswapProviderNew, coinProvider)
         }
         private val switchService by lazy {
             AmountTypeSwitchService()
@@ -103,6 +116,9 @@ object SwapModule {
         override fun <T : ViewModel> create(key: String, modelClass: Class<T>, handle: SavedStateHandle): T {
 
             return when (modelClass) {
+                SwapViewModelNew::class.java -> {
+                    SwapViewModelNew(serviceNew, uniswapProviderNew, pendingAllowanceService, formatter) as T
+                }
                 SwapViewModel::class.java -> {
                     SwapViewModel(service, tradeService, pendingAllowanceService, formatter) as T
                 }
@@ -122,7 +138,7 @@ object SwapModule {
                     SwapCoinCardViewModel(coinCardService, fiatService, switchService, maxButtonEnabled, formatter) as T
                 }
                 SwapAllowanceViewModel::class.java -> {
-                    SwapAllowanceViewModel(service, allowanceService, pendingAllowanceService, formatter) as T
+                    SwapAllowanceViewModel(serviceNew, allowanceService, pendingAllowanceService, formatter) as T
                 }
                 else -> throw IllegalArgumentException()
             }
