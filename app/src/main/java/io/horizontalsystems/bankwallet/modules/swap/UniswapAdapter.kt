@@ -22,9 +22,10 @@ import java.math.BigDecimal
 import java.util.*
 
 class UniswapAdapter(
-        fromCoin: Coin?,
+        private val uniswapKit: UniswapKit,
         evmKit: EthereumKit,
-        private val uniswapKit: UniswapKit
+        private val settingsAdapterFactory: SwapSettingsAdapterFactory,
+        fromCoin: Coin?
 ) : SwapModuleNew.ISwapAdapter {
     private var swapData: SwapData? = null
     private var swapDataDisposable: Disposable? = null
@@ -37,6 +38,9 @@ class UniswapAdapter(
                     syncSwapData()
                 }
     }
+
+    override val routerAddress: Address
+        get() = uniswapKit.routerAddress
 
     override var state: SwapAdapterState = SwapAdapterState.NotReady
         private set(value) {

@@ -83,14 +83,17 @@ object SwapModule {
         private val serviceNew by lazy {
             SwapServiceNew(
                     dex,
-                    uniswapProviderNew,
+                    swapAdapterManager,
                     allowanceService,
                     pendingAllowanceService,
                     App.adapterManager
             )
         }
-        private val uniswapProviderNew by lazy {
-            UniswapAdapter(fromCoin, evmKit, uniswapKit)
+        private val swapAdapterFactory by lazy {
+            SwapAdapterFactory(SwapSettingsAdapterFactory())
+        }
+        private val swapAdapterManager by lazy {
+            SwapAdapterManager(App.localStorage, swapAdapterFactory, fromCoin)
         }
 
         private val tradeService by lazy {
@@ -103,10 +106,10 @@ object SwapModule {
             SwapCoinProvider(dex, App.coinManager, App.walletManager, App.adapterManager, App.currencyManager, App.xRateManager)
         }
         private val fromCoinCardService by lazy {
-            SwapFromCoinCardService(serviceNew, uniswapProviderNew, coinProvider)
+            SwapFromCoinCardService(serviceNew, uniswapAdapter, coinProvider)
         }
         private val toCoinCardService by lazy {
-            SwapToCoinCardService(serviceNew, uniswapProviderNew, coinProvider)
+            SwapToCoinCardService(serviceNew, uniswapAdapter, coinProvider)
         }
         private val switchService by lazy {
             AmountTypeSwitchService()
@@ -117,7 +120,7 @@ object SwapModule {
 
             return when (modelClass) {
                 SwapViewModelNew::class.java -> {
-                    SwapViewModelNew(serviceNew, uniswapProviderNew, pendingAllowanceService, formatter) as T
+                    SwapViewModelNew(serviceNew, uniswapAdapter, pendingAllowanceService, formatter) as T
                 }
                 SwapViewModel::class.java -> {
                     SwapViewModel(service, tradeService, pendingAllowanceService, formatter) as T

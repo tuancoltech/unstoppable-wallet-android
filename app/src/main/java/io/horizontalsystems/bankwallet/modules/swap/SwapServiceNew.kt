@@ -15,12 +15,15 @@ import java.util.*
 
 class SwapServiceNew(
         val dex: SwapModule.Dex,
-        private val swapAdapter: SwapModuleNew.ISwapAdapter,
+        private val swapAdapterManager: SwapAdapterManager,
         private val allowanceService: SwapAllowanceService,
         private val pendingAllowanceService: SwapPendingAllowanceService,
         private val adapterManager: IAdapterManager
 ) {
     private val disposables = CompositeDisposable()
+
+    private val swapAdapter: SwapModuleNew.ISwapAdapter
+        get() = swapAdapterManager.swapAdapter
 
     //region internal subjects
     private val stateSubject = PublishSubject.create<State>()

@@ -1,5 +1,6 @@
 package io.horizontalsystems.bankwallet.modules.swap.coincard
 
+import io.horizontalsystems.bankwallet.modules.swap.SwapAdapterManager
 import io.horizontalsystems.bankwallet.modules.swap.SwapModule
 import io.horizontalsystems.bankwallet.modules.swap.SwapModuleNew
 import io.horizontalsystems.bankwallet.modules.swap.SwapServiceNew
@@ -10,10 +11,13 @@ import java.util.*
 
 class SwapFromCoinCardService(
         private val service: SwapServiceNew,
-        private val swapAdapter: SwapModuleNew.ISwapAdapter,
+        private val swapAdapterManager: SwapAdapterManager,
         private val coinProvider: SwapCoinProvider
 ) : ISwapCoinCardService {
     private val amountType: SwapModuleNew.AmountType = SwapModuleNew.AmountType.ExactFrom
+
+    private val swapAdapter: SwapModuleNew.ISwapAdapter
+        get() = swapAdapterManager.swapAdapter
 
     override val isEstimated: Boolean
         get() = swapAdapter.amountType != amountType
