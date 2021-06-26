@@ -15,11 +15,7 @@ import io.horizontalsystems.bankwallet.modules.sendevm.SendEvmModule
 import io.horizontalsystems.bankwallet.modules.sendevmtransaction.SendEvmTransactionService
 import io.horizontalsystems.bankwallet.modules.sendevmtransaction.SendEvmTransactionViewModel
 import io.horizontalsystems.bankwallet.modules.swap.SwapMainModule
-import io.horizontalsystems.bankwallet.modules.swap.confirmation.oneinch.OneInchSendEvmTransactionService
-import io.horizontalsystems.bankwallet.modules.swap.confirmation.oneinch.OneInchSwapParameters
-import io.horizontalsystems.bankwallet.modules.swap.confirmation.oneinch.OneInchTransactionFeeService
 import io.horizontalsystems.core.findNavController
-import io.horizontalsystems.oneinchkit.OneInchKit
 
 object UniswapConfirmationModule {
 
