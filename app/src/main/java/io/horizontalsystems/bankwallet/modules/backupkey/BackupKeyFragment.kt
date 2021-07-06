@@ -13,12 +13,8 @@ import io.horizontalsystems.pin.PinInteractionType
 import io.horizontalsystems.pin.PinModule
 import kotlinx.android.synthetic.main.fragment_backup_key.*
 
-class BackupKeyFragment : BaseFragment() {
+class BackupKeyFragment : BaseFragment(R.layout.fragment_backup_key) {
     private val viewModel by navGraphViewModels<BackupKeyViewModel>(R.id.backupKeyFragment) { BackupKeyModule.Factory(arguments?.getParcelable(BackupKeyModule.ACCOUNT)!!) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_backup_key, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

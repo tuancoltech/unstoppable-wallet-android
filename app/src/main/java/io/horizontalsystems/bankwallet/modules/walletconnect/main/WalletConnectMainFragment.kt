@@ -24,7 +24,7 @@ import io.horizontalsystems.bankwallet.modules.walletconnect.scanqr.WalletConnec
 import io.horizontalsystems.bankwallet.ui.extensions.ConfirmationDialog
 import kotlinx.android.synthetic.main.fragment_wallet_connect_main.*
 
-class WalletConnectMainFragment : BaseFragment() {
+class WalletConnectMainFragment : BaseFragment(R.layout.fragment_wallet_connect_main) {
 
     private val baseViewModel by navGraphViewModels<WalletConnectViewModel>(R.id.walletConnectMainFragment) {
         WalletConnectModule.Factory(arguments?.getString(WalletConnectMainModule.REMOTE_PEER_ID_KEY))
@@ -50,10 +50,6 @@ class WalletConnectMainFragment : BaseFragment() {
                 }
             }
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_wallet_connect_main, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

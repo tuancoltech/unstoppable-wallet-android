@@ -17,13 +17,9 @@ import io.horizontalsystems.pin.PinModule
 import io.horizontalsystems.views.ListPosition
 import kotlinx.android.synthetic.main.fragment_settings_security.*
 
-class SecuritySettingsFragment : BaseFragment() {
+class SecuritySettingsFragment : BaseFragment(R.layout.fragment_settings_security) {
 
     private val viewModel by viewModels<SecuritySettingsViewModel>()
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_settings_security, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

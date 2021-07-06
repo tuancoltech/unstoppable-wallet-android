@@ -25,15 +25,11 @@ import kotlinx.android.synthetic.main.fragment_faq_list.*
 import kotlinx.android.synthetic.main.view_holder_faq_item.*
 import kotlinx.android.synthetic.main.view_holder_faq_section.*
 
-class FaqListFragment : BaseFragment(), FaqListAdapter.Listener {
+class FaqListFragment : BaseFragment(R.layout.fragment_faq_list), FaqListAdapter.Listener {
 
     private val viewModel by viewModels<FaqViewModel> { FaqModule.Factory() }
     private val adapter = FaqListAdapter(this)
     private val errorAdapter = ErrorAdapter()
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_faq_list, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

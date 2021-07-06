@@ -19,13 +19,9 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_wallet_connect_request.*
 
-class WalletConnectSendEthereumTransactionRequestFragment : BaseFragment() {
+class WalletConnectSendEthereumTransactionRequestFragment : BaseFragment(R.layout.fragment_wallet_connect_request) {
     private val logger = AppLogger("wallet-connect")
     private val baseViewModel by navGraphViewModels<WalletConnectViewModel>(R.id.walletConnectMainFragment)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_wallet_connect_request, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

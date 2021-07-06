@@ -25,7 +25,7 @@ import io.horizontalsystems.snackbar.CustomSnackbar
 import io.horizontalsystems.snackbar.SnackbarDuration
 import kotlinx.android.synthetic.main.fragment_confirmation_send_evm.*
 
-class SendEvmConfirmationFragment : BaseFragment() {
+class SendEvmConfirmationFragment : BaseFragment(R.layout.fragment_confirmation_send_evm) {
 
     private val logger = AppLogger("send-evm")
     private val sendEvmMViewModel by navGraphViewModels<SendEvmViewModel>(R.id.sendEvmFragment)
@@ -47,10 +47,6 @@ class SendEvmConfirmationFragment : BaseFragment() {
         }
     private val additionalInfo: SendEvmData.AdditionalInfo?
         get() = arguments?.getParcelable(SendEvmModule.additionalInfoKey)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_confirmation_send_evm, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -41,14 +41,10 @@ import io.horizontalsystems.core.helpers.HudHelper
 import io.horizontalsystems.views.helpers.LayoutHelper
 import kotlinx.android.synthetic.main.fragment_balance.*
 
-class BalanceFragment : BaseFragment(), BalanceItemsAdapter.Listener, BackupRequiredDialog.Listener {
+class BalanceFragment : BaseFragment(R.layout.fragment_balance), BalanceItemsAdapter.Listener, BackupRequiredDialog.Listener {
 
     private val viewModel by viewModels<BalanceViewModel> { BalanceModule.Factory() }
     private val balanceItemsAdapter = BalanceItemsAdapter(this)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_balance, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

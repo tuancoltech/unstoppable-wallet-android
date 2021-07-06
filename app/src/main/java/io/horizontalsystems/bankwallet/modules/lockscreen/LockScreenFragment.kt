@@ -12,11 +12,7 @@ import io.horizontalsystems.pin.PinFragment
 import io.horizontalsystems.pin.PinInteractionType
 import io.horizontalsystems.pin.PinModule
 
-class LockScreenFragment : BaseFragment(), FragmentResultListener {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_lockscreen, container, false)
-    }
+class LockScreenFragment : BaseFragment(R.layout.fragment_lockscreen), FragmentResultListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

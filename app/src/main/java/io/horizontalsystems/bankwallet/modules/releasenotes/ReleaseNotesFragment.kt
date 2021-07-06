@@ -13,13 +13,9 @@ import io.horizontalsystems.bankwallet.core.BaseFragment
 import io.horizontalsystems.bankwallet.modules.markdown.MarkdownFragment
 import kotlinx.android.synthetic.main.fragment_release_notes.*
 
-class ReleaseNotesFragment : BaseFragment() {
+class ReleaseNotesFragment : BaseFragment(R.layout.fragment_release_notes) {
 
     private val viewModel by viewModels<ReleaseNotesViewModel> { ReleaseNotesModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_release_notes, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -1,11 +1,12 @@
 package io.horizontalsystems.bankwallet.core
 
 import android.view.Menu
+import androidx.annotation.LayoutRes
 import androidx.appcompat.widget.SearchView
 import io.horizontalsystems.bankwallet.R
 
 
-abstract class BaseWithSearchFragment : BaseFragment(), SearchViewHelper.Listener {
+abstract class BaseWithSearchFragment(@LayoutRes layoutResId: Int = 0) : BaseFragment(layoutResId), SearchViewHelper.Listener {
 
     abstract override fun updateFilter(query: String)
     override fun searchExpanded(menu: Menu) {}

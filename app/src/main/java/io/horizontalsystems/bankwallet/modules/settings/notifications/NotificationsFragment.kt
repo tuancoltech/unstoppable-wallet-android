@@ -22,15 +22,11 @@ import kotlinx.android.synthetic.main.fragment_notifications.*
 import kotlinx.android.synthetic.main.view_holder_notification_coin_name.*
 
 
-class NotificationsFragment : BaseFragment(), NotificationItemsAdapter.Listener {
+class NotificationsFragment : BaseFragment(R.layout.fragment_notifications), NotificationItemsAdapter.Listener {
 
     private val viewModel by viewModels<NotificationsViewModel> { NotificationsModule.Factory() }
 
     private lateinit var notificationItemsAdapter: NotificationItemsAdapter
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_notifications, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

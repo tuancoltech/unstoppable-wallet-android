@@ -31,7 +31,7 @@ import kotlinx.android.synthetic.main.fragment_restore_mnemonic.passphraseToggle
 import kotlinx.android.synthetic.main.fragment_restore_mnemonic.toolbar
 import kotlinx.android.synthetic.main.view_input_address.view.*
 
-class RestoreMnemonicFragment : BaseFragment() {
+class RestoreMnemonicFragment : BaseFragment(R.layout.fragment_restore_mnemonic) {
     private val viewModel by viewModels<RestoreMnemonicViewModel> { RestoreMnemonicModule.Factory() }
 
     private val textWatcher = object : TextWatcher {
@@ -47,10 +47,6 @@ class RestoreMnemonicFragment : BaseFragment() {
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_restore_mnemonic, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

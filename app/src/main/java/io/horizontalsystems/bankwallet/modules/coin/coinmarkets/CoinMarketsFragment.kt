@@ -16,14 +16,10 @@ import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_coin_markets.*
 import kotlinx.android.synthetic.main.fragment_coin_markets.marketListHeader
 
-class CoinMarketsFragment : BaseFragment(), MarketListHeaderView.Listener {
+class CoinMarketsFragment : BaseFragment(R.layout.fragment_coin_markets), MarketListHeaderView.Listener {
 
     private val coinViewModel by navGraphViewModels<CoinViewModel>(R.id.coinFragment)
     private val viewModel by viewModels<CoinMarketsViewModel>{ CoinMarketsModule.Factory(coinViewModel.coinCode) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_coin_markets, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

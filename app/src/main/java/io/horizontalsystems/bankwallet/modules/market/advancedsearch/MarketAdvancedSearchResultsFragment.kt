@@ -23,14 +23,10 @@ import kotlinx.android.synthetic.main.fragment_market_advanced_search_results.co
 import kotlinx.android.synthetic.main.fragment_market_advanced_search_results.marketListHeader
 import kotlinx.android.synthetic.main.fragment_market_advanced_search_results.pullToRefresh
 
-class MarketAdvancedSearchResultsFragment : BaseFragment(), MarketListHeaderView.Listener, ViewHolderMarketItem.Listener {
+class MarketAdvancedSearchResultsFragment : BaseFragment(R.layout.fragment_market_advanced_search_results), MarketListHeaderView.Listener, ViewHolderMarketItem.Listener {
 
     private val marketSearchFilterViewModel by navGraphViewModels<MarketAdvancedSearchViewModel>(R.id.marketAdvancedSearchFragment)
     private val marketListViewModel by viewModels<MarketListViewModel> { MarketAdvancedSearchResultsModule.Factory(marketSearchFilterViewModel.service) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_market_advanced_search_results, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

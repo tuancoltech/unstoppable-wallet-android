@@ -9,11 +9,7 @@ import io.horizontalsystems.bankwallet.core.BaseFragment
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_privacy_settings_info.*
 
-class PrivacySettingsInfoFragment : BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_privacy_settings_info, container, false)
-    }
+class PrivacySettingsInfoFragment : BaseFragment(R.layout.fragment_privacy_settings_info) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

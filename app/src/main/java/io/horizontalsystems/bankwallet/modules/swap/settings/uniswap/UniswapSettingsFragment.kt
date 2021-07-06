@@ -23,7 +23,7 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_swap_settings_uniswap.*
 
-class UniswapSettingsFragment : SwapSettingsBaseFragment() {
+class UniswapSettingsFragment : SwapSettingsBaseFragment(R.layout.fragment_swap_settings_uniswap) {
     private val uniswapViewModel by navGraphViewModels<UniswapViewModel>(R.id.swapFragment) { UniswapModule.Factory(dex) }
 
     private val vmFactory by lazy { UniswapSettingsModule.Factory(uniswapViewModel.tradeService, dex) }
@@ -43,10 +43,6 @@ class UniswapSettingsFragment : SwapSettingsBaseFragment() {
                 findNavController().popBackStack()
             }
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_swap_settings_uniswap, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

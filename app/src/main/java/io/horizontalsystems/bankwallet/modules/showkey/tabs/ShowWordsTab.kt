@@ -9,16 +9,12 @@ import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.BaseFragment
 import kotlinx.android.synthetic.main.fragment_show_words_tab.*
 
-class ShowWordsTab : BaseFragment() {
+class ShowWordsTab : BaseFragment(R.layout.fragment_show_words_tab) {
     private val words: List<String>
         get() = requireArguments().getStringArrayList(WORDS) ?: listOf()
 
     private val passphrase: String
         get() = requireArguments().getString(PASSPHRASE) ?: ""
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_show_words_tab, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

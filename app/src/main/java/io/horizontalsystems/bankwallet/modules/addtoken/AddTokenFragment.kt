@@ -20,11 +20,7 @@ import io.horizontalsystems.snackbar.SnackbarDuration
 import io.horizontalsystems.views.ListPosition
 import kotlinx.android.synthetic.main.fragment_add_token.*
 
-class AddTokenFragment : BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_add_token, container, false)
-    }
+class AddTokenFragment : BaseFragment(R.layout.fragment_add_token) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

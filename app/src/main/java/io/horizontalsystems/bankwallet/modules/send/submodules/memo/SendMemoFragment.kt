@@ -16,12 +16,8 @@ import kotlinx.android.synthetic.main.view_send_memo.*
 
 
 class SendMemoFragment(private val maxLength: Int,
-                       private val handler: SendModule.ISendHandler) : SendSubmoduleFragment() {
+                       private val handler: SendModule.ISendHandler) : SendSubmoduleFragment(R.layout.view_send_memo) {
     private val presenter by activityViewModels<SendMemoPresenter> { SendMemoModule.Factory(maxLength, handler) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.view_send_memo, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

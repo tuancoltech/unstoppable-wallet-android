@@ -15,12 +15,8 @@ import io.horizontalsystems.core.helpers.HudHelper
 import io.horizontalsystems.core.helpers.KeyboardHelper
 import kotlinx.android.synthetic.main.fragment_backup_words_confirm.*
 
-class BackupConfirmKeyFragment : BaseFragment() {
+class BackupConfirmKeyFragment : BaseFragment(R.layout.fragment_backup_words_confirm) {
     private val viewModel by viewModels<BackupConfirmKeyViewModel> { BackupConfirmKeyModule.Factory(arguments?.getParcelable(BackupConfirmKeyModule.ACCOUNT)!!) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_backup_words_confirm, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

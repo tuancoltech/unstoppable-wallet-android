@@ -13,13 +13,9 @@ import io.horizontalsystems.bankwallet.core.BaseFragment
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_markdown.*
 
-class MarkdownFragment : BaseFragment(), MarkdownContentAdapter.Listener {
+class MarkdownFragment : BaseFragment(R.layout.fragment_markdown), MarkdownContentAdapter.Listener {
 
     private lateinit var contentAdapter: MarkdownContentAdapter
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_markdown, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

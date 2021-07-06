@@ -16,12 +16,8 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_create_account.*
 
-class CreateAccountFragment : BaseFragment() {
+class CreateAccountFragment : BaseFragment(R.layout.fragment_create_account) {
     private val viewModel by viewModels<CreateAccountViewModel> { CreateAccountModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_create_account, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

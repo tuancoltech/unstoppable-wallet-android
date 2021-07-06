@@ -28,13 +28,9 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_manage_account.*
 import kotlinx.android.synthetic.main.view_holder_account_setting_view.*
 
-class ManageAccountFragment : BaseFragment(), UnlinkConfirmationDialog.Listener {
+class ManageAccountFragment : BaseFragment(R.layout.fragment_manage_account), UnlinkConfirmationDialog.Listener {
     private val viewModel by viewModels<ManageAccountViewModel> { ManageAccountModule.Factory(arguments?.getString(ACCOUNT_ID_KEY)!!) }
     private var saveMenuItem: MenuItem? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_manage_account, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

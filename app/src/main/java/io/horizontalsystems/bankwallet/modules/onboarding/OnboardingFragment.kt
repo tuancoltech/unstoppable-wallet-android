@@ -9,11 +9,7 @@ import io.horizontalsystems.bankwallet.core.BaseFragment
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_no_wallet.*
 
-class OnboardingFragment: BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_no_wallet, container, false)
-    }
+class OnboardingFragment: BaseFragment(R.layout.fragment_no_wallet) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

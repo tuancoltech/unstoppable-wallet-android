@@ -18,11 +18,7 @@ import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_receive.*
 import kotlinx.android.synthetic.main.fragment_receive.toolbar
 
-class ReceiveFragment : BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_receive, container, false)
-    }
+class ReceiveFragment : BaseFragment(R.layout.fragment_receive) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

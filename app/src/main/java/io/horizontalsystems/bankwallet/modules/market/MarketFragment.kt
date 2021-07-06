@@ -11,12 +11,8 @@ import io.horizontalsystems.bankwallet.modules.transactions.FilterAdapter
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_market.*
 
-class MarketFragment : BaseWithSearchFragment(), FilterAdapter.Listener {
+class MarketFragment : BaseWithSearchFragment(R.layout.fragment_market), FilterAdapter.Listener {
     private val marketViewModel by navGraphViewModels<MarketViewModel>(R.id.mainFragment) { MarketModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_market, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

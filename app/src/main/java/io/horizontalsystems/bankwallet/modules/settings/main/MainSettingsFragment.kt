@@ -20,13 +20,9 @@ import io.horizontalsystems.languageswitcher.LanguageSettingsFragment
 import io.horizontalsystems.views.ListPosition
 import kotlinx.android.synthetic.main.fragment_settings.*
 
-class MainSettingsFragment : BaseFragment() {
+class MainSettingsFragment : BaseFragment(R.layout.fragment_settings) {
 
     private val presenter by viewModels<MainSettingsPresenter> { MainSettingsModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_settings, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

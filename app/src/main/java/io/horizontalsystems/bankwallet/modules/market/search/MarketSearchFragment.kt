@@ -21,13 +21,9 @@ import io.horizontalsystems.core.helpers.KeyboardHelper
 import io.horizontalsystems.views.inflate
 import kotlinx.android.synthetic.main.fragment_market_search.*
 
-class MarketSearchFragment : BaseFragment() {
+class MarketSearchFragment : BaseFragment(R.layout.fragment_market_search) {
 
     private val marketSearchViewModel by viewModels<MarketSearchViewModel> { MarketSearchModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_market_search, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         toolbar.setNavigationOnClickListener {

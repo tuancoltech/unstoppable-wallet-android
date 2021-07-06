@@ -14,13 +14,9 @@ import io.horizontalsystems.bankwallet.core.managers.TermsManager
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_terms_settings.*
 
-class TermsFragment : BaseFragment() {
+class TermsFragment : BaseFragment(R.layout.fragment_terms_settings) {
 
     private val viewModel by viewModels<TermsViewModel> { TermsModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_terms_settings, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

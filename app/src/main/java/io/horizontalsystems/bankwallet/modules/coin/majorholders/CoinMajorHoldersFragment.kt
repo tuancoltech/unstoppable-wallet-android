@@ -13,13 +13,9 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 
-class CoinMajorHoldersFragment : BaseFragment(), CoinMajorHoldersAdapter.Listener {
+class CoinMajorHoldersFragment : BaseFragment(R.layout.fragment_recyclerview), CoinMajorHoldersAdapter.Listener {
 
     private val coinViewModel by navGraphViewModels<CoinViewModel>(R.id.coinFragment)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_recyclerview, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

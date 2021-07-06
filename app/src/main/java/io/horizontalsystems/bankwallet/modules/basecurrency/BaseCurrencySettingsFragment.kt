@@ -20,13 +20,9 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_base_currency_settings.*
 import java.util.*
 
-class BaseCurrencySettingsFragment : BaseFragment(), RVAdapter.ViewHolder.Listener {
+class BaseCurrencySettingsFragment : BaseFragment(R.layout.fragment_base_currency_settings), RVAdapter.ViewHolder.Listener {
 
     private val viewModel by viewModels<BaseCurrencySettingsViewModel> { BaseCurrencySettingsModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_base_currency_settings, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

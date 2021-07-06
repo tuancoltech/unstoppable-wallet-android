@@ -22,7 +22,7 @@ import io.horizontalsystems.core.getNavigationResult
 import io.horizontalsystems.core.setOnSingleClickListener
 import kotlinx.android.synthetic.main.fragment_uniswap.*
 
-class UniswapFragment : SwapBaseFragment() {
+class UniswapFragment : SwapBaseFragment(R.layout.fragment_uniswap) {
 
     private val vmFactory by lazy { UniswapModule.Factory(dex) }
     private val uniswapViewModel by navGraphViewModels<UniswapViewModel>(R.id.swapFragment) { vmFactory }
@@ -47,14 +47,6 @@ class UniswapFragment : SwapBaseFragment() {
 
     override fun getProviderState(): SwapMainModule.SwapProviderState {
         return uniswapViewModel.getProviderState()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_uniswap, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

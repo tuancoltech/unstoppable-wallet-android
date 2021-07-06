@@ -28,15 +28,11 @@ import kotlinx.android.synthetic.main.fragment_transactions.*
 import kotlinx.android.synthetic.main.view_holder_filter.*
 import kotlinx.android.synthetic.main.view_holder_transaction.*
 
-class TransactionsFragment : Fragment(), TransactionsAdapter.Listener, FilterAdapter.Listener {
+class TransactionsFragment : Fragment(R.layout.fragment_transactions), TransactionsAdapter.Listener, FilterAdapter.Listener {
 
     private val viewModel by navGraphViewModels<TransactionsViewModel>(R.id.mainFragment) { TransactionsModule.Factory() }
     private val transactionsAdapter = TransactionsAdapter(this)
     private val filterAdapter = FilterAdapter(this)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_transactions, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

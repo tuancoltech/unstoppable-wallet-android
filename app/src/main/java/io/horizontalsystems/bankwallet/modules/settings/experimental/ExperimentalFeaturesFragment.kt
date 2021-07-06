@@ -12,13 +12,9 @@ import io.horizontalsystems.bankwallet.core.setOnSingleClickListener
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_experimental_features.*
 
-class ExperimentalFeaturesFragment : BaseFragment() {
+class ExperimentalFeaturesFragment : BaseFragment(R.layout.fragment_experimental_features) {
 
     private val presenter by viewModels<ExperimentalFeaturesPresenter> { ExperimentalFeaturesModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_experimental_features, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

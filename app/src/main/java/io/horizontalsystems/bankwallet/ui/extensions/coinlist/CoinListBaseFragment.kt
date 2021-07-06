@@ -15,17 +15,12 @@ import io.horizontalsystems.coinkit.models.Coin
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_manage_wallets.*
 
-abstract class CoinListBaseFragment : BaseWithSearchFragment(), CoinListAdapter.Listener {
+abstract class CoinListBaseFragment : BaseWithSearchFragment(R.layout.fragment_manage_wallets), CoinListAdapter.Listener {
 
     private lateinit var featuredItemsAdapter: CoinListAdapter
     private lateinit var itemsAdapter: CoinListAdapter
 
     abstract val title: CharSequence
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_manage_wallets, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

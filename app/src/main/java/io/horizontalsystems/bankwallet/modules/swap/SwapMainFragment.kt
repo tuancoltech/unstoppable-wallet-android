@@ -12,14 +12,10 @@ import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_swap.*
 
 
-class SwapMainFragment : BaseFragment() {
+class SwapMainFragment : BaseFragment(R.layout.fragment_swap) {
 
     private val vmFactory by lazy { SwapMainModule.Factory(requireArguments()) }
     private val mainViewModel by navGraphViewModels<SwapMainViewModel>(R.id.swapFragment) { vmFactory }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_swap, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

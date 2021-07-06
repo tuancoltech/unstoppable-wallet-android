@@ -19,16 +19,12 @@ import io.horizontalsystems.bankwallet.modules.transactions.FilterAdapter
 import kotlinx.android.synthetic.main.fragment_guides.*
 import kotlinx.android.synthetic.main.fragment_guides.toolbar
 
-class GuidesFragment : BaseFragment(), GuidesAdapter.Listener, FilterAdapter.Listener {
+class GuidesFragment : BaseFragment(R.layout.fragment_guides), GuidesAdapter.Listener, FilterAdapter.Listener {
 
     private val viewModel by viewModels<GuidesViewModel> { GuidesModule.Factory() }
     private val errorAdapter = ErrorAdapter()
     private val guidesAdapter = GuidesAdapter(this)
     private val filterAdapter = FilterAdapter(this)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_guides, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

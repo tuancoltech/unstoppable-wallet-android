@@ -17,13 +17,9 @@ import kotlinx.android.synthetic.main.view_hodler_input.*
 class SendHodlerFragment(
         private val hodlerModuleDelegate: SendHodlerModule.IHodlerModuleDelegate,
         private val sendHandler: SendModule.ISendHandler
-) : SendSubmoduleFragment() {
+) : SendSubmoduleFragment(R.layout.view_hodler_input) {
 
     private val presenter by activityViewModels<SendHodlerPresenter> { SendHodlerModule.Factory(sendHandler, hodlerModuleDelegate) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.view_hodler_input, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

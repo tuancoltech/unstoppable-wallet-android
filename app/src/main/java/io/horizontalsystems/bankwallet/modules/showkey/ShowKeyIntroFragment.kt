@@ -13,12 +13,8 @@ import io.horizontalsystems.pin.PinInteractionType
 import io.horizontalsystems.pin.PinModule
 import kotlinx.android.synthetic.main.fragment_show_key_intro.*
 
-class ShowKeyIntroFragment : BaseFragment() {
+class ShowKeyIntroFragment : BaseFragment(R.layout.fragment_show_key_intro) {
     private val viewModel by navGraphViewModels<ShowKeyViewModel>(R.id.showKeyIntroFragment) { ShowKeyModule.Factory(arguments?.getParcelable(ShowKeyModule.ACCOUNT)!!) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_show_key_intro, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

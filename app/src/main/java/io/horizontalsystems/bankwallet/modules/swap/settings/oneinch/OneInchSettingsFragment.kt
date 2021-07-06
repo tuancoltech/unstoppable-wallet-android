@@ -2,9 +2,7 @@ package io.horizontalsystems.bankwallet.modules.swap.settings.oneinch
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.navGraphViewModels
@@ -21,7 +19,7 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_swap_settings_1inch.*
 
-class OneInchSettingsFragment : SwapSettingsBaseFragment() {
+class OneInchSettingsFragment : SwapSettingsBaseFragment(R.layout.fragment_swap_settings_1inch) {
 
     private val oneInchViewModel by navGraphViewModels<OneInchSwapViewModel>(R.id.swapFragment) { OneInchModule.Factory(dex) }
 
@@ -41,10 +39,6 @@ class OneInchSettingsFragment : SwapSettingsBaseFragment() {
                 findNavController().popBackStack()
             }
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_swap_settings_1inch, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

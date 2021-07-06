@@ -13,13 +13,9 @@ import io.horizontalsystems.bankwallet.modules.coin.CoinViewModel
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 
-class CoinInvestorsFragment : BaseFragment(), CoinInvestorCategoryAdapter.Listener {
+class CoinInvestorsFragment : BaseFragment(R.layout.fragment_recyclerview), CoinInvestorCategoryAdapter.Listener {
 
     private val coinViewModel by navGraphViewModels<CoinViewModel>(R.id.coinFragment)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_recyclerview, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

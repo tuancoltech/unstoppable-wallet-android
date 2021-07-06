@@ -43,7 +43,7 @@ import io.horizontalsystems.pin.unlock.UnlockPinRouter
 import kotlinx.android.synthetic.main.fragment_pin.*
 import java.util.concurrent.Executor
 
-class PinFragment : Fragment(), NumPadItemsAdapter.Listener, PinPagesAdapter.Listener {
+class PinFragment : Fragment(R.layout.fragment_pin), NumPadItemsAdapter.Listener, PinPagesAdapter.Listener {
 
     companion object {
         const val ATTACHED_TO_LOCKSCREEN = "attached_to_lock_screen"
@@ -65,10 +65,6 @@ class PinFragment : Fragment(), NumPadItemsAdapter.Listener, PinPagesAdapter.Lis
     private lateinit var pinPagesAdapter: PinPagesAdapter
     private lateinit var numpadAdapter: NumPadItemsAdapter
     private val executor = Executor { command -> command.run() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_pin, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

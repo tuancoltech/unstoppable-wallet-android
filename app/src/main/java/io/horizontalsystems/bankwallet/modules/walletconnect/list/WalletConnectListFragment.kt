@@ -18,12 +18,8 @@ import kotlinx.android.synthetic.main.fragment_wallet_connect_list.*
 import kotlinx.android.synthetic.main.view_holder_wallet_connect_account.*
 import kotlinx.android.synthetic.main.view_holder_wallet_connect_session.*
 
-class WalletConnectListFragment : BaseFragment(), SessionViewHolder.Listener {
+class WalletConnectListFragment : BaseFragment(R.layout.fragment_wallet_connect_list), SessionViewHolder.Listener {
     private val viewModel by viewModels<WalletConnectListViewModel> { WalletConnectListModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_wallet_connect_list, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

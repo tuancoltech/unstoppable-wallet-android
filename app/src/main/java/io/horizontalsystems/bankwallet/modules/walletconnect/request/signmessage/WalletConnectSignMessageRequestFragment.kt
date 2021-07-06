@@ -19,11 +19,7 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.views.ListPosition
 import kotlinx.android.synthetic.main.fragment_wallet_connect_sign_message_request.*
 
-class WalletConnectSignMessageRequestFragment : BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_wallet_connect_sign_message_request, container, false)
-    }
+class WalletConnectSignMessageRequestFragment : BaseFragment(R.layout.fragment_wallet_connect_sign_message_request) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

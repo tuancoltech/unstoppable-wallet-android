@@ -11,13 +11,9 @@ import io.horizontalsystems.bankwallet.core.BaseFragment
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_bitcoin_hodling.*
 
-class BitcoinHodlingFragment : BaseFragment() {
+class BitcoinHodlingFragment : BaseFragment(R.layout.fragment_bitcoin_hodling) {
 
     private val presenter by viewModels<BitcoinHodlingPresenter> { BitcoinHodlingModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_bitcoin_hodling, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

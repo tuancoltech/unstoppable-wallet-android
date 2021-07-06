@@ -19,17 +19,13 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_market_discovery.*
 
-class MarketDiscoveryFragment : BaseFragment(), MarketListHeaderView.Listener, ViewHolderMarketItem.Listener, MarketCategoriesAdapter.Listener {
+class MarketDiscoveryFragment : BaseFragment(R.layout.fragment_market_discovery), MarketListHeaderView.Listener, ViewHolderMarketItem.Listener, MarketCategoriesAdapter.Listener {
 
     private val vmFactory = MarketDiscoveryModule.Factory()
 
     private val marketDiscoveryViewModel by viewModels<MarketDiscoveryViewModel> { vmFactory }
     private val marketListViewModel by viewModels<MarketListViewModel> { vmFactory }
     private val marketViewModel by navGraphViewModels<MarketViewModel>(R.id.mainFragment)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_market_discovery, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

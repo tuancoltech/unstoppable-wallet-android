@@ -25,13 +25,9 @@ class SendFeeFragment(
         private val feeModuleDelegate: SendFeeModule.IFeeModuleDelegate,
         private val sendHandler: SendModule.ISendHandler,
         private val customPriorityUnit: CustomPriorityUnit?)
-    : SendSubmoduleFragment() {
+    : SendSubmoduleFragment(R.layout.view_send_fee) {
 
     private val presenter by activityViewModels<SendFeePresenter> { SendFeeModule.Factory(coin, sendHandler, feeModuleDelegate, customPriorityUnit) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.view_send_fee, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 

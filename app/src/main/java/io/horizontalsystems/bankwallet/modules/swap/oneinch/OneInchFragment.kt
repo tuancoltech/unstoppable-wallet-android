@@ -21,7 +21,7 @@ import io.horizontalsystems.core.getNavigationResult
 import io.horizontalsystems.core.setOnSingleClickListener
 import kotlinx.android.synthetic.main.fragment_1inch.*
 
-class OneInchFragment : SwapBaseFragment() {
+class OneInchFragment : SwapBaseFragment(R.layout.fragment_1inch) {
 
     private val vmFactory by lazy { OneInchModule.Factory(dex) }
     private val oneInchViewModel by navGraphViewModels<OneInchSwapViewModel>(R.id.swapFragment) { vmFactory }
@@ -46,14 +46,6 @@ class OneInchFragment : SwapBaseFragment() {
 
     override fun getProviderState(): SwapMainModule.SwapProviderState {
         return oneInchViewModel.getProviderState()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_1inch, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

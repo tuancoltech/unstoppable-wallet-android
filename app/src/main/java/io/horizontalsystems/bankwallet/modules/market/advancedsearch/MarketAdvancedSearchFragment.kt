@@ -17,14 +17,10 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_market_search_filter.*
 
-class MarketAdvancedSearchFragment : BaseFragment() {
+class MarketAdvancedSearchFragment : BaseFragment(R.layout.fragment_market_search_filter) {
 
     private val marketAdvancedSearchViewModel by navGraphViewModels<MarketAdvancedSearchViewModel>(R.id.marketAdvancedSearchFragment) {
         MarketAdvancedSearchModule.Factory()
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_market_search_filter, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -10,11 +10,7 @@ import io.horizontalsystems.bankwallet.modules.walletconnect.request.WalletConne
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_wallet_connect_display_typed_message.*
 
-class WalletConnectDisplayTypedMessageFragment : BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_wallet_connect_display_typed_message, container, false)
-    }
+class WalletConnectDisplayTypedMessageFragment : BaseFragment(R.layout.fragment_wallet_connect_display_typed_message) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

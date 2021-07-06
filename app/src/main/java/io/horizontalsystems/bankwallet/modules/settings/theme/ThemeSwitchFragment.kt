@@ -19,13 +19,9 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_theme_switcher.*
 import kotlinx.android.synthetic.main.view_holder_theme_switch_item.*
 
-class ThemeSwitchFragment : BaseFragment() {
+class ThemeSwitchFragment : BaseFragment(R.layout.fragment_theme_switcher) {
 
     private val viewModel by viewModels<ThemeSwitchViewModel> { ThemeSwitchModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_theme_switcher, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

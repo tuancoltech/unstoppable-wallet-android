@@ -28,15 +28,11 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_overview.*
 
-class MarketOverviewFragment : BaseFragment(), ViewHolderMarketOverviewItem.Listener, ViewHolderMarketPostItem.Listener {
+class MarketOverviewFragment : BaseFragment(R.layout.fragment_overview), ViewHolderMarketOverviewItem.Listener, ViewHolderMarketPostItem.Listener {
 
     private val marketMetricsViewModel by viewModels<MarketMetricsViewModel> { MarketMetricsModule.Factory() }
     private val marketOverviewViewModel by viewModels<MarketOverviewViewModel> { MarketOverviewModule.Factory() }
     private val marketViewModel by navGraphViewModels<MarketViewModel>(R.id.mainFragment)
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_overview, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

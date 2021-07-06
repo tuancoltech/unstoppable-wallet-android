@@ -23,13 +23,9 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_market_favorites.*
 
-class MarketFavoritesFragment : BaseFragment(), MarketListHeaderView.Listener, ViewHolderMarketItem.Listener {
+class MarketFavoritesFragment : BaseFragment(R.layout.fragment_market_favorites), MarketListHeaderView.Listener, ViewHolderMarketItem.Listener {
 
     private val marketListViewModel by viewModels<MarketListViewModel> { MarketFavoritesModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_market_favorites, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

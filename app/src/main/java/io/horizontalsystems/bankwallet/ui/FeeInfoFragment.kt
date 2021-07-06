@@ -9,11 +9,7 @@ import io.horizontalsystems.bankwallet.core.BaseFragment
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_fee_info.*
 
-class FeeInfoFragment : BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_fee_info, container, false)
-    }
+class FeeInfoFragment : BaseFragment(R.layout.fragment_fee_info) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

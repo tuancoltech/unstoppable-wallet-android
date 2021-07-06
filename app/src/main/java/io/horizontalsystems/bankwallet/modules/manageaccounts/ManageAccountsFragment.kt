@@ -23,12 +23,8 @@ import kotlinx.android.synthetic.main.view_holder_manage_account_action.backgrou
 import kotlinx.android.synthetic.main.view_holder_manage_account_action.title
 import kotlinx.android.synthetic.main.view_holder_manage_account_item.*
 
-class ManageAccountsFragment : BaseFragment(), AccountViewHolder.Listener {
+class ManageAccountsFragment : BaseFragment(R.layout.fragment_manage_accounts), AccountViewHolder.Listener {
     private val viewModel by viewModels<ManageAccountsViewModel> { ManageAccountsModule.Factory(arguments?.getParcelable(ManageAccountsModule.MODE)!!) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_manage_accounts, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

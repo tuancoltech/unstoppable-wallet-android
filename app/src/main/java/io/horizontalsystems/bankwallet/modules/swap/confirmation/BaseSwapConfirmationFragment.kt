@@ -21,7 +21,7 @@ import io.horizontalsystems.snackbar.CustomSnackbar
 import io.horizontalsystems.snackbar.SnackbarDuration
 import kotlinx.android.synthetic.main.fragment_confirmation_swap.*
 
-abstract class BaseSwapConfirmationFragment : BaseFragment() {
+abstract class BaseSwapConfirmationFragment : BaseFragment(R.layout.fragment_confirmation_swap) {
 
     protected abstract val logger: AppLogger
     protected abstract val sendViewModel: SendEvmTransactionViewModel
@@ -33,10 +33,6 @@ abstract class BaseSwapConfirmationFragment : BaseFragment() {
         get() = mainViewModel.dex
 
     private var snackbarInProcess: CustomSnackbar? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_confirmation_swap, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

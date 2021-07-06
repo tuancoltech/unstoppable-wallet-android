@@ -22,13 +22,9 @@ import io.horizontalsystems.views.ViewHolderProgressbar
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_language_settings.*
 
-class LanguageSettingsFragment : Fragment(), LanguageSwitcherAdapter.Listener {
+class LanguageSettingsFragment : Fragment(R.layout.fragment_language_settings), LanguageSwitcherAdapter.Listener {
 
     private lateinit var presenter: LanguageSwitcherPresenter
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_language_settings, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

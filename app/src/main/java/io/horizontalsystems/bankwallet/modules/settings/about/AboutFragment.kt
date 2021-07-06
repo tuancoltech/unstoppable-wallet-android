@@ -24,13 +24,9 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_about.*
 import kotlinx.android.synthetic.main.view_holder_about_app_header.*
 
-class AboutFragment : BaseFragment() {
+class AboutFragment : BaseFragment(R.layout.fragment_about) {
 
     val viewModel by viewModels<AboutViewModel> { AboutModule.Factory() }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_about, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

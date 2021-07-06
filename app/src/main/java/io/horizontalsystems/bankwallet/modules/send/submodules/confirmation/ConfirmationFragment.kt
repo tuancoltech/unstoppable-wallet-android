@@ -20,17 +20,13 @@ import io.horizontalsystems.core.helpers.HudHelper
 import kotlinx.android.synthetic.main.fragment_confirmation.*
 import java.net.UnknownHostException
 
-class ConfirmationFragment(private var sendPresenter: SendPresenter?) : BaseFragment() {
+class ConfirmationFragment(private var sendPresenter: SendPresenter?) : BaseFragment(R.layout.fragment_confirmation) {
 
     private var sendButtonView: ConfirmationSendButtonView? = null
     private val presenter by activityViewModels<SendConfirmationPresenter> { SendConfirmationModule.Factory() }
     private var sendView: SendView? = null
     private var presenterView: SendConfirmationView? = null
     private val logger = AppLogger("send")
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_confirmation, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

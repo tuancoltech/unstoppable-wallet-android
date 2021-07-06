@@ -9,11 +9,7 @@ import androidx.fragment.app.Fragment
 import io.horizontalsystems.bankwallet.R
 import kotlinx.android.synthetic.main.fragment_slide_intro.*
 
-class IntroSlideFragment : Fragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_slide_intro, container, false)
-    }
+class IntroSlideFragment : Fragment(R.layout.fragment_slide_intro) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

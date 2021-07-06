@@ -12,14 +12,10 @@ import io.horizontalsystems.bankwallet.core.BaseFragment
 import io.horizontalsystems.core.findNavController
 import kotlinx.android.synthetic.main.fragment_swap_info.*
 
-class SwapInfoFragment : BaseFragment() {
+class SwapInfoFragment : BaseFragment(R.layout.fragment_swap_info) {
 
     private val vmFactory by lazy { SwapInfoModule.Factory(requireArguments()) }
     private val viewModel by viewModels<SwapInfoViewModel> { vmFactory }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_swap_info, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_send_evm.availableBalanceValue
 import kotlinx.android.synthetic.main.fragment_send_evm.background
 import kotlinx.android.synthetic.main.fragment_send_evm.txtHintError
 
-class SendEvmFragment : BaseFragment() {
+class SendEvmFragment : BaseFragment(R.layout.fragment_send_evm) {
 
     private val wallet by lazy { requireArguments().getParcelable<Wallet>(SendEvmModule.walletKey)!! }
     private val vmFactory by lazy { SendEvmModule.Factory(wallet) }
@@ -45,10 +45,6 @@ class SendEvmFragment : BaseFragment() {
             Activity.RESULT_CANCELED -> {
             }
         }
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_send_evm, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -30,7 +30,7 @@ import io.horizontalsystems.snackbar.CustomSnackbar
 import io.horizontalsystems.snackbar.SnackbarDuration
 import kotlinx.android.synthetic.main.fragment_confirmation_approve_swap.*
 
-class SwapApproveConfirmationFragment : BaseFragment() {
+class SwapApproveConfirmationFragment : BaseFragment(R.layout.fragment_confirmation_approve_swap) {
     private val logger = AppLogger("swap-approve")
     private val mainViewModel by navGraphViewModels<SwapApproveViewModel>(R.id.swapApproveFragment)
     private val vmFactory by lazy {
@@ -51,10 +51,6 @@ class SwapApproveConfirmationFragment : BaseFragment() {
         get() = arguments?.getParcelable(additionalInfoKey)
 
     private var snackbarInProcess: CustomSnackbar? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_confirmation_approve_swap, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

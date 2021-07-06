@@ -28,7 +28,7 @@ import io.horizontalsystems.core.findNavController
 import io.horizontalsystems.xrateskit.entities.LinkType
 import kotlinx.android.synthetic.main.fragment_coin.*
 
-class CoinFragment : BaseFragment(), CoinChartAdapter.Listener, CoinDataAdapter.Listener, CoinLinksAdapter.Listener {
+class CoinFragment : BaseFragment(R.layout.fragment_coin), CoinChartAdapter.Listener, CoinDataAdapter.Listener, CoinLinksAdapter.Listener {
 
     private val coinTitle by lazy {
         requireArguments().getString(COIN_TITLE_KEY) ?: ""
@@ -47,10 +47,6 @@ class CoinFragment : BaseFragment(), CoinChartAdapter.Listener, CoinDataAdapter.
     private val viewModel by navGraphViewModels<CoinViewModel>(R.id.coinFragment) { vmFactory }
 
     private var notificationMenuItem: MenuItem? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_coin, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

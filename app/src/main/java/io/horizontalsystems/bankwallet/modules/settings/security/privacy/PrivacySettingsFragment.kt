@@ -26,17 +26,13 @@ import kotlinx.android.synthetic.main.fragment_settings_privacy.*
 import kotlin.system.exitProcess
 
 class PrivacySettingsFragment :
-        BaseFragment(),
+        BaseFragment(R.layout.fragment_settings_privacy),
         PrivacySettingsTorAdapter.Listener,
         PrivacySettingsTransactionsStructureAdapter.Listener {
 
     private lateinit var viewModel: PrivacySettingsViewModel
     private lateinit var torControlAdapter: PrivacySettingsTorAdapter
     private lateinit var walletRestoreSettingsAdapter: PrivacySettingsAdapter
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_settings_privacy, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

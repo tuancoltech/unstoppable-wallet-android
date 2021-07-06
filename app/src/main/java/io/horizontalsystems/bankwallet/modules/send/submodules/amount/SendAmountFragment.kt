@@ -19,13 +19,9 @@ class SendAmountFragment(
         private val wallet: Wallet,
         private val amountModuleDelegate: SendAmountModule.IAmountModuleDelegate,
         private val sendHandler: SendModule.ISendHandler)
-    : SendSubmoduleFragment() {
+    : SendSubmoduleFragment(R.layout.view_amount_input) {
 
     private val presenter by activityViewModels<SendAmountPresenter> { SendAmountModule.Factory(wallet, sendHandler) }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.view_amount_input, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 

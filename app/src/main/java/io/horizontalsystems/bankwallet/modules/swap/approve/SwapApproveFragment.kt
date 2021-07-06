@@ -23,11 +23,7 @@ import io.horizontalsystems.core.getNavigationResult
 import io.horizontalsystems.core.setNavigationResult
 import kotlinx.android.synthetic.main.fragment_swap_approve.*
 
-class SwapApproveFragment : BaseFragment() {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_swap_approve, container, false)
-    }
+class SwapApproveFragment : BaseFragment(R.layout.fragment_swap_approve) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
